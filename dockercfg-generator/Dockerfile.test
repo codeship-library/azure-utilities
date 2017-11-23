@@ -1,0 +1,6 @@
+FROM alpine:3.6
+LABEL maintainer='Codeship Inc <maintainers@codeship.com>'
+
+RUN echo "Hello Microsoft Azure at $(date)" > hello.txt
+
+CMD ["cat hello.txt"]
