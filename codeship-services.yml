@@ -1,0 +1,22 @@
+base:
+  build:
+    image: codeship/azure-base
+    path: ./base
+    dockerfile_path: Dockerfile
+dockercfg-generator:
+  build:
+    image: codeship/azure-dockercfg-generator
+    path: ./dockercfg-generator
+    dockerfile_path: Dockerfile
+  add_docker: true
+  encrypted_env_file: azure.env.encrypted
+dockercfg-test:
+  build:
+    image: codeship.azurecr.io/codeship-testing
+    path: ./dockercfg-generator
+    dockerfile_path: Dockerfile.test
+deployment:
+  build:
+    image: codeship/azure-deployment
+    path: ./deployment
+    dockerfile_path: Dockerfile
