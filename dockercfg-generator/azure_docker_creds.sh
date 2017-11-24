@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 
@@ -7,11 +7,17 @@ set -e
 : "${AZURE_REGISTRY_NAME:?You need to set the AZURE_REGISTRY_NAME}"
 
 # Logging into Azure
-echo "Logging into Microsoft Azure using credentials for ${AZURE_USERNAME}"
-az login --username "${AZURE_USERNAME}" --password "${AZURE_PASSWORD}"
+# echo "Logging into Microsoft Azure using credentials for ${AZURE_USERNAME}"
+# az login --username "${AZURE_USERNAME}" --password "${AZURE_PASSWORD}"
+#
+# echo "Logging into '${AZURE_REGISTRY_NAME}' container registry"
+# az acr login --name ${AZURE_REGISTRY_NAME}
 
-echo "Logging into '${AZURE_REGISTRY_NAME}' container registry"
-az acr login --name ${AZURE_REGISTRY_NAME}
+
+# Rely on a default "docker login" command for now, since the above snippet
+# created a valid (looking) config file, but resulted in authentication errors
+# during the "docker push"
+docker login  --username "${AZURE_USERNAME}" --password "$AZURE_PASSWORD" "${AZURE_REGISTRY_NAME}"
 
 # writing aws docker creds to desired path
 echo "Writing Docker creds to $1"
