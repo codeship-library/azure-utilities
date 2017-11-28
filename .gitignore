@@ -1,4 +1,5 @@
-azure.env
+acr.env
+aks.env
 codeship.aes
 dockercfg
 tmp

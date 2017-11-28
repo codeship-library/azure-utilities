@@ -10,12 +10,12 @@
 - name: Test
   type: parallel
   steps:
-    # - name: Test Deployment
-    #   service: deployment
-    #   type: serial
-    #   steps:
-    #     - name: Kubernetes CLI
-    #       command: /tests/kubernetes.sh
+    - name: Test Deployment
+      service: deployment
+      type: serial
+      steps:
+        - name: Kubernetes CLI
+          command: /tests/kubernetes.sh
     - name: Test dockercfg Generator
       service: dockercfg-test
       type: push

@@ -9,7 +9,7 @@ dockercfg-generator:
     path: ./dockercfg-generator
     dockerfile_path: Dockerfile
   add_docker: true
-  encrypted_env_file: azure.env.encrypted
+  encrypted_env_file: acr.env.encrypted
 dockercfg-test:
   build:
     image: codeship.azurecr.io/codeship-testing
@@ -20,3 +20,9 @@ deployment:
     image: codeship/azure-deployment
     path: ./deployment
     dockerfile_path: Dockerfile
+  environment:
+    - AZURE_RESOURCE_GROUP=cs-k8s
+    - AZURE_CLUSTER_NAME=cs-k8s-testing
+  encrypted_env_file: aks.env.encrypted
+  volumes:
+    - ./deployment/tests:/tests
