@@ -2,7 +2,11 @@
 
 ## Deployment Container
 
-**TODO**
+This is a generic deployment container with the Azure CLI (`az`) and the Kubernetes CLI (`kubectl`) preinstalled.
+
+There is a sample [kubernetes.sh](deployment/tests/kubernetes.sh) deployment script available, which you can use as a starting point for your own deployment scripts. It shows how to login to Azure via encrypted environment variables and configure `kubectl` to run commands against the AKS cluster.
+
+The image is available via the [codeship/azure-deployment](https://hub.docker.com/r/codeship/azure-deployment/) repository on Docker Hub.
 
 ## `dockercfg` Generator
 
