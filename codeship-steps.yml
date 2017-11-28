@@ -22,17 +22,17 @@
       image_name: codeship.azurecr.io/codeship-testing
       registry: codeship.azurecr.io
       dockercfg_service: dockercfg-generator
-# - name: Deploy (to Docker Hub)
-#   tag: master
-#   type: serial
-#   steps:
-#     - name: Push Deployment
-#       service: deployment
-#       type: push
-#       image_name: codeship/ibm-bluemix-deployment
-#       encrypted_dockercfg_path: dockercfg.encrypted
-#     - name: Push dockercfg Generator
-#       service: dockercfg-generator
-#       type: push
-#       image_name: codeship/ibm-bluemix-dockercfg-generator
-#       encrypted_dockercfg_path: dockercfg.encrypted
+- name: Deploy (to Docker Hub)
+  tag: master
+  type: serial
+  steps:
+    - name: Push Deployment
+      service: deployment
+      type: push
+      image_name: codeship/azure-deployment
+      encrypted_dockercfg_path: dockercfg.encrypted
+    - name: Push dockercfg Generator
+      service: dockercfg-generator
+      type: push
+      image_name: codeship/azure-dockercfg-generator
+      encrypted_dockercfg_path: dockercfg.encrypted
