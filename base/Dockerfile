@@ -1,5 +1,5 @@
 # https://hub.docker.com/r/microsoft/azure-cli/
-FROM microsoft/azure-cli:2.0.33
+FROM microsoft/azure-cli:2.0.34
 LABEL maintainer='Codeship Inc., <maintainers@codeship.com>'
 
 RUN \
