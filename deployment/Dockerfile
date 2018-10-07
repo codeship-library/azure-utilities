@@ -3,7 +3,7 @@ LABEL maintainer='Codeship Inc., <maintainers@codeship.com>'
 
 # Install the "kubectl" CLI
 # https://storage.googleapis.com/kubernetes-release/release/stable.txt
-ARG KUBECTL_VERSION="v1.11.3"
+ARG KUBECTL_VERSION="v1.12.1"
 RUN \
   curl -sSL https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl && \
   chmod +x /usr/local/bin/kubectl && \
